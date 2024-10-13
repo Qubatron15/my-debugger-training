@@ -40,17 +40,28 @@ const lettersRandomized = [
     'rzóieuriggksss'
 ];
 
+'skwearoownia',
+'woiśrnwaikiekls',
+'puitkkbaacej',
+'tmarazsutkeąb',
+'zinyralactaaakczmk',
+'aioołzyawtsmzd',
+'srgegzemriońwiiuz',
+'woamesrztuskyazżikn',
+'rzóieuriggksss'
+
+
 const anagrams = [
-    "Ania Woskrewo",          // skwearoownia (12 liter)
-    "Wikal Irenosławsik",        // woiśrnwaikiekls (15 liter)
-    "Kafa Agat",              // aągaktaf (8 liter)
-    "Bajka Kupcięt",          // puitkkbaacej (12 liter)
-    "Marta Bużkaste",        // tmarazsutkeąb (13 liter)
-    "Kaczy Znalika Matarc",    // zinyralactaaakczmk (19 liter)
-    "Zosia Dławazotym",        // aioołzyawtsmzd (14 liter)
-    "Ziemig Urewizgrońs",        // srgegzemriońwiiuz (18 liter)
-    "Zamieszy Krukwotsazn",      // woamesrztuskyazżikn (20 liter)
-    "Grzesik Rógsuis"          // rzóieuriggksss (14 liter)
+    "Kafa Taag",             // aągaktaf (8 liter)
+    "Kasia Wronowe",         // skwearoownia (12 liter)
+    "Wiesław Kiornie",       // woiśrnwaikiekls (15 liter)
+    "Jakub Tacięk",          // puitkkbaacej (12 liter)
+    "Marta Kazusęt",         // tmarazsutkeąb (13 liter)
+    "Krzysztof Acanali",     // zinyralactaaakczmk (19 liter)
+    "Zosia Małowyta",        // aioołzyawtsmzd (14 liter)
+    "Mirek Zygrosien",       // srgegzemriońwiiuz (18 liter)
+    "Kazimierz Ustysko",     // woamesrztuskyazżikn (20 liter)
+    "Grzegorz Sukiś"         // rzóieuriggksss (14 liter)
   ];
 
 
@@ -73,12 +84,12 @@ function checkAnagrams() {
 
         for (let realGiven of realGivenNames) {
             for (let realSurname of realSurnames) {
-                const combinationToTry = `${realGiven} ${realSurname}`.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const combinationToTry = `${realGiven} ${realSurname}`;
 
-                const realNameNormalised = combinationToTry.replace(' ', '').toLowerCase().split('').sort().join('');
+                const realNameNormalised = combinationToTry.replace(' ', '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split('').sort().join('');
 
                 if (fakeNameNormalised === realNameNormalised) {
-                    console.log(`${fakeName} is ${combinationToTry}`);
+                    console.log(`${fakeName} is ${combinationToTry} // ${fakeNameNormalised}`);
                 }
             }
         }
