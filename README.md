@@ -4,6 +4,8 @@ Presentation Contents:
     - debugging in WebStorm
     - debugging simple algorithms
         - recognizing the anagrams
+        - show the dupe debugging
+            - https://www.miejski.pl/slowo-dupa+debugging
         - setting the debugger in IF statement
         - creating conditional breakpoint
 
