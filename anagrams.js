@@ -5,6 +5,7 @@ const realGivenNames = [
     'Agata',
     'Jakub',
     'Mateusz',
+    'Natalia'
 ];
 
 const realSurnames = [
@@ -12,6 +13,7 @@ const realSurnames = [
     'Fąk',
     'Patecki',
     'Trąbka',
+    'Kaczmarczyk'
 ];
 
 
@@ -34,6 +36,7 @@ const anagrams = [
     "Kasia Wronowe",
     "Jakub Kaciętp",
     "Bartek Szamuta",
+    'Katarzyna Kicla Macz'
   ];
 
 
@@ -52,10 +55,10 @@ function checkChatGPT() {
 function checkAnagrams() {
     for (let fakeName of anagrams) {
         const fakeNameNormalised = fakeName
-            .replace(' ', '')
+            .replaceAll(' ', '')
             .toLowerCase()
-            // .normalize("NFD")
-            // .replace(/[\u0300-\u036f]/g, "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
             .split('')
             .sort()
             .join('');
@@ -65,10 +68,10 @@ function checkAnagrams() {
                 const combinationToTry = `${realGiven} ${realSurname}`;
 
                 const realNameNormalised = combinationToTry
-                    .replace(' ', '')
+                    .replaceAll(' ', '')
                     .toLowerCase()
-                    // .normalize("NFD")
-                    // .replace(/[\u0300-\u036f]/g, "")
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
                     .split('')
                     .sort()
                     .join('');
