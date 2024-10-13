@@ -8,6 +8,8 @@ Presentation Contents:
             - https://www.miejski.pl/slowo-dupa+debugging
         - setting the debugger in IF statement
         - creating conditional breakpoint
+        - the bug is that letters are not normalised
+            - https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
 
 - setting up the debugger for real project
     - debugging in chrome
