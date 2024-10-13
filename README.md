@@ -4,11 +4,14 @@ Presentation Contents:
     - debugging in WebStorm
     - debugging simple algorithms
         - recognizing the anagrams
+        - setting the debugger in IF statement
+        - creating conditional breakpoint
 
 - setting up the debugger for real project
     - debugging in chrome
     - debugging the real project frontend
         - just simple items in the code
+        - creating conditional breakpoint
     - debugging the real project backend
         - --inspect flag
         - another debugger somewhere in the code
