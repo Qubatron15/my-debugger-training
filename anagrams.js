@@ -37,7 +37,7 @@ const anagrams = new Set([
     "Kasia Wronowe",
     "Jakub Kaciętp",
     "Bartek Szamuta",
-    'Katarzyna Kicla Macz'
+    "Katarzyna Kicla Macz"
   ]);
 
 
@@ -64,6 +64,8 @@ function checkAnagrams() {
             .sort()
             .join('');
 
+            console.log('fakeNameNormalised', fakeNameNormalised);
+
         for (let realName of realNames) {
             for (let realSurname of realSurnames) {
                 const combinationToTry = `${realName} ${realSurname}`;
@@ -78,7 +80,7 @@ function checkAnagrams() {
                     .join('');
 
                 if (fakeNameNormalised === realNameNormalised) {
-                    console.log(`${fakeName} is ${combinationToTry} // ${fakeNameNormalised}`);
+                    // console.log(`${fakeName} is ${combinationToTry} // ${fakeNameNormalised}`);
                     anagrams.delete(fakeName);
                     realNames.delete(realName);
                     realSurnames.delete(realSurname);
