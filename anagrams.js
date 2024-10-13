@@ -1,20 +1,21 @@
 // const randomized = realNames.map(name => name.replace(' ', '').toLowerCase().split('').sort(function(){return 0.5-Math.random()}).join(''))
 
-const realGivenNames = [
+const realNames = new Set([
     'Weronika',
     'Agata',
     'Jakub',
     'Mateusz',
-    'Natalia'
-];
+    'Natalia',
+    'Arnold'
+]);
 
-const realSurnames = [
+const realSurnames = new Set([
     'Sowa',
     'Fąk',
     'Patecki',
     'Trąbka',
     'Kaczmarczyk'
-];
+]);
 
 
 const lettersRandomized = [
@@ -31,25 +32,25 @@ const lettersRandomized = [
 ];
 
 
-const anagrams = [
+const anagrams = new Set([
     "Kafa Taag",
     "Kasia Wronowe",
     "Jakub Kaciętp",
     "Bartek Szamuta",
     'Katarzyna Kicla Macz'
-  ];
+  ]);
 
 
-function checkChatGPT() {
-    for (let i in anagrams) {
-        const lettersArray = anagrams[i].replace(' ', '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split('');
-        let result = lettersRandomized[i].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+// function checkChatGPT() {
+//     for (let i in anagrams) {
+//         const lettersArray = anagrams[i].replace(' ', '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split('');
+//         let result = lettersRandomized[i].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-        lettersArray.forEach(letter => result = result.replace(letter, ''));
+//         lettersArray.forEach(letter => result = result.replace(letter, ''));
 
-        console.log(`${anagrams[i]}: ${result}`);
-    }
-}
+//         console.log(`${anagrams[i]}: ${result}`);
+//     }
+// }
 
 
 function checkAnagrams() {
@@ -63,9 +64,9 @@ function checkAnagrams() {
             .sort()
             .join('');
 
-        for (let realGiven of realGivenNames) {
+        for (let realName of realNames) {
             for (let realSurname of realSurnames) {
-                const combinationToTry = `${realGiven} ${realSurname}`;
+                const combinationToTry = `${realName} ${realSurname}`;
 
                 const realNameNormalised = combinationToTry
                     .replaceAll(' ', '')
@@ -78,6 +79,9 @@ function checkAnagrams() {
 
                 if (fakeNameNormalised === realNameNormalised) {
                     console.log(`${fakeName} is ${combinationToTry} // ${fakeNameNormalised}`);
+                    anagrams.delete(fakeName);
+                    realNames.delete(realName);
+                    realSurnames.delete(realSurname);
                 }
             }
         }
